@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+		<title>Validation</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+	</head>
+<body>
+		
+  	<form action='/process' method='post'>
+		<label class="forms"> Your name:</label>
+    		<input type='text' name='name'>
+    	<label class="forms" for="LOCATION">LOCATION:</label>
+    		<select name="location">
+  				<option value="Mountain View">Mountain View</option>
+  				<option value="Seattle">Seattle</option>
+  				<option value="Dallas">Dallas</option>
+  				<option value="Home">Home</option>
+			</select>
+		
+		<label class="forms" for="LANGUAGE">LANGUAGE:</label>
+			<select name="language">
+  				<option value="Narn">Narn</option>
+  				<option value="Minbari">Minbari</option>
+  				<option value="Centauri">Centauri</option>
+  				<option value="Vorlon">Vorlon</option>
+			</select>
+		<label class="forms">Comment: (not optional)</label>
+				<input id="comments" type='text' name="coms" placeholder=" FEEL GOOD ABOUT you comment!!"><br>
+    			<input id="submit" type='submit' value='submit'>
+    	</form>
+	    	{% with messages = get_flashed_messages() %}
+				{% if messages %}
+		  			{% for message in messages %}
+		    			<p>{{message}}</p>
+		  			{% endfor %}
+				{% endif %}
+			{% endwith %}
+	
+   	</body>
+</html>	
